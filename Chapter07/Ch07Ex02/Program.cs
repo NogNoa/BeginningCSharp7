@@ -7,12 +7,12 @@ using static System.Console;
 
 namespace Ch07Ex02
 {
-    class Program
+    static class Program
     {
-        static string[] eTypes = { "none", "simple", "index",
+        static readonly string[] eTypes = { "none", "simple", "index",
                                  "nested index", "filter" };
 
-        static void Main(string[] args)
+        static void Main()
         {
             foreach (string eType in eTypes)
             {
@@ -57,7 +57,7 @@ namespace Ch07Ex02
                     break;                                               // Line 57
                 case "simple":
                     WriteLine("Throwing System.Exception.");
-                    throw new System.Exception();                      // Line 60
+                    throw new System.Exception(); //terminates the switch statement    // Line 60
                 case "index":
                     WriteLine("Throwing System.IndexOutOfRangeException.");
                     eTypes[5] = "error";                                 // Line 63

@@ -45,34 +45,22 @@ namespace Ch11CardLib
         {
             if (card1.suit == card2.suit)
             {
-                if (isAceHigh)
+                if (card1.rank == Rank.Ace)
                 {
-                    if (card1.rank == Rank.Ace)
-                    {
-                        if (card2.rank == Rank.Ace)
-                            return false;
-                        else
-                            return true;
-                    }
+                    if (card2.rank == Rank.Ace)
+                    {    return false;}
                     else
-                    {
-                        if (card2.rank == Rank.Ace)
-                            return false;
-                        else
-                            return (card1.rank > card2?.rank);
-                    }
+                    {    return isAceHigh;}
                 }
                 else
-                {
-                    return (card1.rank > card2.rank);
-                }
+                {   return (card1.rank > card2.rank);}
             }
             else
             {
                 if (useTrumps && (card2.suit == Card.trump))
-                    return false;
+                {    return false;}
                 else
-                    return true;
+                {    return true;}
             }
         }
         public static bool operator <(Card card1, Card card2)
@@ -84,28 +72,21 @@ namespace Ch11CardLib
                 if (isAceHigh)
                 {
                     if (card1.rank == Rank.Ace)
-                    {
-                        return true;
-                    }
+                    {   return true;}
+                    else if (card2.rank == Rank.Ace)
+                    {   return false;}
                     else
-                    {
-                        if (card2.rank == Rank.Ace)
-                            return false;
-                        else
-                            return (card1.rank >= card2.rank);
-                    }
+                    {   return (card1.rank >= card2.rank);}
                 }
                 else
-                {
-                    return (card1.rank >= card2.rank);
-                }
+                {   return (card1.rank >= card2.rank);}
             }
             else
             {
                 if (useTrumps && (card2.suit == Card.trump))
-                    return false;
+                {    return false;}
                 else
-                    return true;
+                {    return true;}
             }
         }
         public static bool operator <=(Card card1, Card card2)

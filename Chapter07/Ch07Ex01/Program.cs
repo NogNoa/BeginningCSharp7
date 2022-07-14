@@ -44,18 +44,15 @@ namespace Ch07Ex01
                          $"New maximum found. New value is {maxVal}, at " +
                          $"element index {i}."));
                 }
-                else
+                else if (integers[i] == maxVal)
                 {
-                    if (integers[i] == maxVal)
-                    {
-                        count++;
-                        int[] oldIndices = indices;
-                        indices = new int[count];
-                        oldIndices.CopyTo(indices, 0);
-                        indices[count - 1] = i;
-                        Debug.WriteLine(string.Format(
-                           $"Duplicate maximum found at element index {i}."));
-                    }
+                    count++;
+                    int[] oldIndices = indices;
+                    indices = new int[count];
+                    oldIndices.CopyTo(indices, 0);
+                    indices[count - 1] = i;
+                    Debug.WriteLine(string.Format(
+                        $"Duplicate maximum found at element index {i}."));
                 }
             }
             Trace.WriteLine(string.Format(

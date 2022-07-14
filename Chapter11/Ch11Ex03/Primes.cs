@@ -25,11 +25,10 @@ namespace Ch11Ex03
             for (long possiblePrime = min; possiblePrime <= max; possiblePrime++)
             {
                 bool isPrime = true;
-                for (long possibleFactor = 2; possibleFactor <=
-                   (long)Math.Floor(Math.Sqrt(possiblePrime)); possibleFactor++)
+                long limit = (long)Math.Floor(Math.Sqrt(possiblePrime));
+                for (long possibleFactor = 2; possibleFactor <= limit; possibleFactor++)
                 {
-                    long remainderAfterDivision = possiblePrime % possibleFactor;
-                    if (remainderAfterDivision == 0)
+                    if (possiblePrime % possibleFactor == 0)
                     {
                         isPrime = false;
                         break;
